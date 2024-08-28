@@ -100,6 +100,12 @@ class ProductTest extends TestCase
     {
         $productData = Product::factory()->make()->toArray();
 
+        Storage::fake('public');
+
+        $file = UploadedFile::fake()->image('product.jpg');
+
+        $productData['image'] = $file;
+
         $response = $this->post(route('products.store'), $productData);
 
         $response->assertRedirect(route('products.index'));
