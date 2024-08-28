@@ -13,12 +13,12 @@ Test yang harus pass
 
 
 ## Implementasi logika tambah data dan view edit data
-- [ ] Metode store pada `ProductController` harus dapat menambah data produk baru ke dalam database
-- [ ] Metode store harus memiliki validasi input sebelum menambahkan data ke database (semua required)
-- [ ] mengembalikan response berupa pesan sukses jika data berhasil ditambahkan dan redirect ke halaman list produk
-- [ ] Implementasi view form untuk edit data produk
-- [ ] Form edit data produk harus dapat menampilkan data produk yang akan diedit
-- [ ] nama file view untuk form edit data produk adalah `edit.blade.php` pada folder `resources/views/products`
+- [x] Metode store pada `ProductController` harus dapat menambah data produk baru ke dalam database
+- [x] Metode store harus memiliki validasi input sebelum menambahkan data ke database (semua required)
+- [x] mengembalikan response berupa pesan sukses jika data berhasil ditambahkan dan redirect ke halaman list produk
+- [x] Implementasi view form untuk edit data produk
+- [x] Form edit data produk harus dapat menampilkan data produk yang akan diedit
+- [x] nama file view untuk form edit data produk adalah `edit.blade.php` pada folder `resources/views/products`
 
 Test yang harus pass
 - `test_store_saves_product_and_redirects`
