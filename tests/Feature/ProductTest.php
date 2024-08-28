@@ -111,6 +111,8 @@ class ProductTest extends TestCase
         $response->assertRedirect(route('products.index'));
 
         $response->assertSessionHas('success');
+
+        $productData['image'] = "images/{$file->hashName()}";
         $this->assertDatabaseHas('products', $productData);
     }
 
