@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
+//menambahkan use yang dibutuhkan
+use Illuminate\Support\Facades\Storage;
+
+
 class ProductController extends Controller
 {
     /**
@@ -63,6 +67,35 @@ class ProductController extends Controller
          * TODO: Implement the update method
          * Return redirect to list of products pages with a success message
          */
+
+
+     // Validasi input sebelum mengubah data di database
+     $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'required|string',
+        'price' => 'required|numeric',
+        'stock' => 'required|integer',
+        'image' => 'sometimes|url|max:2048', // Validasi URL gambar
+    ]);
+
+    // Jika ada URL gambar baru, update data produk
+    if ($request->filled('image')) {
+        // Hapus gambar lama jika ada
+        if ($product->image) {
+            Storage::disk('public')->delete($product->image);
+        }
+
+        // Set gambar baru ke data produk
+        $validated['image'] = $request->image;
+    }
+
+    // Update produk dengan data yang telah divalidasi
+    $product->update($validated);
+
+    // Redirect ke halaman daftar produk dengan pesan sukses
+    return redirect()->route('products.index')
+        ->with('success', 'Produk berhasil diperbarui.');
+
     }
 
     /**
@@ -75,6 +108,18 @@ class ProductController extends Controller
          * should delete the image from the storage
          * Return redirect to list of products pages with a success message
          */
+
+         // Hapus gambar produk dari storage jika ada
+        if ($product->image) {
+            Storage::disk('public')->delete($product->image);
+        }
+
+        // Hapus produk dari database
+        $product->delete();
+
+        // Redirect ke halaman daftar produk dengan pesan sukses
+        return redirect()->route('products.index')
+            ->with('success', 'Produk berhasil dihapus.');
 
     }
 }
