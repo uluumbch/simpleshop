@@ -27,51 +27,51 @@
             <thead class="font-medium text-xs text-blue-500 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3 ">
-                        Jenis
+                        Name
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Plat
+                        Description
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Penumpang
+                        Price
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Harga/jam
+                        Stok
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        gambar
+                        Image
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Action
                     </th>
                 </tr>
             </thead>
-            {{-- <tbody>
+            <tbody>
 
-                @foreach ($kendaraans as $kendaraan)
+                @foreach ($products as $product)
 
                 <tr
                     class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
-                        {{$kendaraan->jenis}}
+                        {{$product->name}}
                     </th>
                     <td class="px-6 py-4">
-                        <a href="/"> {{$kendaraan->plat}}</a>
+                      {{$product->description}}
                     </td>
                     <td class="px-6 py-4">
-                        {{$kendaraan->penumpang}}
+                        Rp. {{$product->price}}
                     </td>
                     <td class="px-6 py-4">
-                        Rp. {{$kendaraan->harga}}
+                        {{$product->stock}}
                     </td>
                     <td class="px-6 py-4">
-                        <img src="{{ Storage::url($kendaraan->file) }}" alt="{{ $kendaraan->file }}"
+                        <img src="{{ Storage::url($product->image) }}" alt="{{ $product->image }}"
                             style="width: 100px; height: auto;">
                     </td>
                     <td class="px-6 py-4">
                         <div class="flex space-x-2">
-                            <form action="/{{$kendaraan->id}}" method="POST" onsubmit="return confirmDelete()">
+                            <form action="/{{$product->id}}" method="POST" onsubmit="return confirmDelete()">
                                 @method('delete')
                                 @csrf
                                 <button type="submit"
@@ -79,7 +79,7 @@
                                     Hapus
                                 </button>
                             </form>
-                            <a href="/{{$kendaraan->id}}/edit"
+                            <a href="/{{$product->id}}/edit"
                                 class="text-blue-500 bg-white border-2 border-blue-600 focus:outline-none hover:bg-blue-600 hover:text-white focus:ring-4 focus:ring-gray-100 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                                 Edit
                             </a>
@@ -89,7 +89,7 @@
                     </td>
                 </tr>
                 @endforeach
-            </tbody> --}}
+            </tbody>
         </table>
         
 
