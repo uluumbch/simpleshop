@@ -25,11 +25,11 @@ Test yang harus pass
 - `test_edit_displays_form`
 
 ## Implementasi logika edit data dan hapus data
-- [ ] Metode update pada `ProductController` harus dapat mengubah data produk yang ada di database
-- [ ] Metode update harus memiliki validasi input sebelum mengubah data di database (semua required)
-- [ ] Metode destroy pada `ProductController` harus dapat menghapus data produk yang ada di database
-- [ ] Metode destroy harus mengembalikan response berupa pesan sukses jika data berhasil dihapus dan redirect ke halaman list produk
-- [ ] Metode destroy harus menghapus file gambar produk yang terkait
+- [x] Metode update pada `ProductController` harus dapat mengubah data produk yang ada di database
+- [x] Metode update harus memiliki validasi input sebelum mengubah data di database (semua required)
+- [x] Metode destroy pada `ProductController` harus dapat menghapus data produk yang ada di database
+- [x] Metode destroy harus mengembalikan response berupa pesan sukses jika data berhasil dihapus dan redirect ke halaman list produk
+- [x] Metode destroy harus menghapus file gambar produk yang terkait
 
 Test yang harus pass
 - `test_update_saves_changes_and_redirects`
