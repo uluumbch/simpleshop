@@ -1,15 +1,15 @@
 # TODO
 ## Implementasi view
 - [x] Implementasi view untuk menampilkan list data produk
-- [ ] Implementasi view form untuk menambah data produk
-- [ ] form harus dapat menampilkan error jika input tidak valid
+- [x] Implementasi view form untuk menambah data produk
+- [x] form harus dapat menampilkan error jika input tidak valid
 
 Test yang harus pass
 - `test_should_have_view_with_name_products_index` [x]
-- `test_index_displays_products`
+- `test_index_displays_products` [x]
 - `test_create_displays_form`   [x]
-- `test_create_form_should_have_name_description_price_stock_image`
-- `test_create_form_validation`
+- `test_create_form_should_have_name_description_price_stock_image`[x]
+- `test_create_form_validation`[x]
 
 
 ## Implementasi logika tambah data dan view edit data
