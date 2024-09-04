@@ -64,8 +64,8 @@ class ProductTest extends TestCase
         $response->assertSee('price');
         $response->assertSee('stock');
         $response->assertSee('image');
-        $response->assertSee('method="POST"');
-        $response->assertSee('enctype="multipart/form-data"');
+        $response->assertSee('method="POST"', false);
+        $response->assertSee('enctype="multipart/form-data"',false);
     }
 
     /**
@@ -146,8 +146,8 @@ class ProductTest extends TestCase
         $response->assertSee($product->stock);
         $response->assertSee('image');
         $response->assertSee($product->image);
-        $response->assertSee('method="POST"');
-        $response->assertSee('enctype="multipart/form-data"');
+        $response->assertSee('method="POST"', false);
+        $response->assertSee('enctype="multipart/form-data"', false);
         $response->assertSee('Update');
 
     }
