@@ -33,10 +33,26 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        /**
-         * TODO: Implement the store method
-         * Return redirect to list of products pages with a success message
-         */
+       $validatedData = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+            'image' => 'required'
+        ]);
+
+        $validatedData['image'] = $request->file('image')->store('images');
+
+        // Product::create($validatedData);
+        Product::create([
+            'name' => $validatedData['name'],
+            'description' => $validatedData['description'],
+            'price' => $validatedData['price'],
+            'stock' => $validatedData['stock'],
+            'image' => $validatedData['image'],
+        ]);
+
+        return redirect()->route('products.index')->with('success', 'New Product Successfully Added');
     }
 
     /**
