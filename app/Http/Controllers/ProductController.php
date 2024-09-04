@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 //menambahkan use yang dibutuhkan
 use Illuminate\Support\Facades\Storage;
@@ -34,6 +35,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
        $validatedData = $request->validate([
+
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
@@ -72,6 +74,9 @@ class ProductController extends Controller
          * TODO: Implement the edit method
          * return a view with the product data, view name is products.edit
          */
+        return view('products.edit', [
+            'product' => $product
+        ]); 
     }
 
     /**
