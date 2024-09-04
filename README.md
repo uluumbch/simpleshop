@@ -1,6 +1,7 @@
 # TODO
 ## Implementasi view
 - [x] Implementasi view untuk menampilkan list data produk
+sdfsdfsd
 - [ ] Implementasi view form untuk menambah data produk
 - [ ] form harus dapat menampilkan error jika input tidak valid
 
